@@ -1,0 +1,20 @@
+
+class SubSring:
+    def logest_subString(self,s1:str,s2:str):
+        max_length=0
+        repeat_s=""
+        for i in range(1,len(s1)):
+            for j in range(1,len(s2)):
+                substring = s1[i:j+1]
+                if substring in s2:
+                    max_length = max(max_length, len(substring))
+                    repeat_s=substring
+            return  max_length,repeat_s
+
+
+s1='ababass'
+s2='abasbeesbababababass'
+
+longest_substring= SubSring()
+
+print(longest_substring.logest_subString(s1,s2))
