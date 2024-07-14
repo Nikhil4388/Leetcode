@@ -1,3 +1,29 @@
+##********************using while lopp***************************
+class TrapWater:
+    def trap_water(self,height:list[int]):
+        if not height:
+            return 0
+        l,r = 0,len(height)-1
+        leftMaxArray=height[l]
+        rightMaxArray= height[r]
+        result = 0
+
+        while l<r:
+            if leftMaxArray < rightMaxArray:
+                l+=1
+                leftMaxArray = max(leftMaxArray,height[l])
+                result+=leftMaxArray-height[l]
+            else:
+                r-=1
+                rightMaxArray =max(rightMaxArray,height[r])
+                result+=rightMaxArray-height[r]
+        return result
+
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+trap_water = TrapWater()
+print(trap_water.trap_water(height))
+
+##********************using for loop ***************************
 class TrapWater:
     def trap_water(self, height: list[int]) -> int:
         if not height:
