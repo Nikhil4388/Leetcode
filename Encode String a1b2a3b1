@@ -1,0 +1,30 @@
+
+class EncodeString:
+    
+    def encode_string(self,s:str):
+        if not s:
+            return ""
+        
+        repeat_s = ""
+        count=1
+        current_char = s[0]
+
+        for char in range(1,len(s)):
+
+            if s[char]==current_char:
+                count+=1
+            else:
+                repeat_s += current_char + str(count)
+                current_char=s[char]
+                count=1
+        
+        repeat_s +=current_char+str(count)
+        return repeat_s
+
+
+
+s='aaabbcbbb'
+
+encode=EncodeString()
+print("encode String: ",encode.encode_string(s))
+#a3b2c1b3
